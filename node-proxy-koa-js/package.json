@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start": "npm ci && node app.js"
+  },
+  "dependencies": {
+    "koa": "^2.13.4",
+    "koa-server-http-proxy": "^0.1.0",
+    "typescript": "^4.5.4"
+  }
+}
