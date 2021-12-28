@@ -1,9 +1,9 @@
 const express = require("express");
-
+const compression = require('compression');
 const app = express();
 
 const { createProxyMiddleware } = require("http-proxy-middleware");
-
+app.use(compression());
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -16,9 +16,9 @@ app.use((req, res, next) => {
 
 app.use(
   createProxyMiddleware("/api", {
-    target: "http://127.0.0.1:3000",
+    target: "http://127.0.0.1:8080",
     pathRewrite: { "^/api": "" },
     changeOrigin: true,
   })
 );
-app.listen(8080);
+app.listen(8000);
